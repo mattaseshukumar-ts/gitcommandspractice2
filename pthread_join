@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<pthread.h>
+int add()
+{
+    int a=10;
+    int b=20;
+   int c=a+b;
+    printf("%d\n",c);
+}
+int sub()
+{
+    int a=20;
+    int b=30;
+    int c=b-a;
+    printf("%d\n",c);
+}
+int mul()
+{
+    int a=10;
+    int b=20;
+    int c=a*b;
+    printf("%d\n",c);
+}
+int main()
+{
+    pthread_t tid;//one thread can points to only 2  functions
+   // pthread_t td;
+    pthread_create(&tid,NULL,sub,NULL);
+    pthread_create(&tid,NULL,add,NULL);
+   // pthread_join(td,NULL);
+    pthread_join(tid,NULL);//it applicable only on the latest creates thread
+    //pthraed_join(tid,NULL);
+}
